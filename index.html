@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 $errors = "";
 //connect to the database
@@ -24,7 +24,7 @@ if (isset($_GET['del_task'])) {
 }
 
    $tasks = mysqli_query($db, "SELECT * FROM tasks");
- ?>
+ ?> -->
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -35,17 +35,19 @@ if (isset($_GET['del_task'])) {
   </head>
   <body>
     <div class="heading">
-      <h2>To Do List App With PHP & MySQL</h2>
+      <h2>Todo Wish List</h2>
     </div>
 
-<form class="" action="index.php" method="POST">
-<?php if (isset($errors)) { ?>
-  <p><?php echo $errors;?></p>
-<?php } ?>
-
-  <input type="text" name="task" class="task_input">
-  <button type="submit" name="submit" class="task_btn">Add Task</button>
-</form>
+<div id="content">
+  <form class="" action="index.php" method="POST">
+    <?php if (isset($errors)) { ?>
+      <p><?php echo $errors;?></p>
+    <?php } ?>
+    
+      <input type="text" name="task" class="task_input">
+      <button type="submit" name="submit" class="task_btn">Add Task</button>
+    </form>
+</div>
 
 <table>
   <thead>
@@ -72,5 +74,16 @@ if (isset($_GET['del_task'])) {
 
 </tbody>
 </table>
+
+<footer id="footer">
+
+ <h2 id="text">
+  &copy; <?php
+  $fromYear = 1985; 
+  $thisYear = (int)date('Y'); 
+  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> LoveTodos.
+ </h2>
+
+</footer>
   </body>
 </html>
